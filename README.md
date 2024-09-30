@@ -1,24 +1,12 @@
 
-### Images of The Crypto Screener Website:
 
-![Crypto](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto.png)
-![Crypto-CryptoDetails](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-CryptoDetails.png)
-![Trending](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Trending.png)
-![Saved](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Saved.png)
-![Trending-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Trending-Mobile.png)
-![Crypto-CryptoDetails-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-CryptoDetails-Mobile.png)
-![Crypto-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-Mobile.png)
-
-### Resources Used in This Project
-
-- Fonts from https://fonts.google.com/ <br />
-- Icons from https://iconify.design/ <br />
-- API from https://www.coingecko.com/en/api <br />
-
-### External Libraries used in this project:
-
-- [Tailwind css](https://tailwindcss.com/) <br />
-- [recharts](https://recharts.org/en-US/) <br />
-
-
-
+• CRYPTO CHAIN is a web-based cryptocurrency tracking application developed using React, JavaScript,
+HTML, and CSS. The app fetches live data about various cryptocurrencies from the CoinGecko API and
+displays key metrics such as price, market capitalization, and trading volume. It provides users with real-time
+insights into the crypto market, empowering them to make informed decisions.
+• The app pulls real-time data for hundreds of cryptocurrencies from the CoinGecko API.
+• Live updating feature ensures that data is refreshed at regular intervals, providing users with the most
+up-to-date cryptocurrency information.
+• Users can mark specific cryptocurrencies as favorites to track their performance over time.
+• Users can search for specific cryptocurrencies by name or symbol. The search bar allows for filtering results
+based on user input
