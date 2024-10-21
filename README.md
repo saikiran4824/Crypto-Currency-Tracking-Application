@@ -4,8 +4,15 @@
 HTML, and CSS. The app fetches live data about various cryptocurrencies from the CoinGecko API and
 displays key metrics such as price, market capitalization, and trading volume. It provides users with real-time
 insights into the crypto market, empowering them to make informed decisions.
-State Management is handled using useState, useEffect, and Context API for search input, favorites, and API data.The application provides real-time insights into the crypto market, with features like search, favorites, and conditional rendering. • API Integration is done through fetch and Axios for making HTTP requests to CoinGecko API. • Leveraged Recharts to create interactive, responsive charts and graphs, enhancing data-driven insights. 
+State Management is handled using useState, useEffect, and Context API for search input, favorites, and API data.The application provides real-time insights into the crypto market, with features like search, favorites, and conditional rendering. 
+
+• API Integration is done through fetch and Axios for making HTTP requests to CoinGecko API. • Leveraged Recharts to create interactive, responsive charts and graphs, enhancing data-driven insights.
+
+-----------------------------------------------------
+
  ##Tools Used: JavaScript, ReactJS, State Management, Redux Toolkit, ReCharts, Tailwind CSS, Firebase
+
+-----------------------------------------------------
 
 
 • The app pulls real-time data for hundreds of cryptocurrencies from the CoinGecko API.
