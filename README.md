@@ -1,4 +1,4 @@
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 • ##CRYPTO CHAIN is a web-based cryptocurrency tracking application developed using React,Redux Toolkit, Recharts, CoinGecko API, JavaScript,
 HTML, and CSS. The app fetches live data about various cryptocurrencies from the CoinGecko API and
@@ -13,15 +13,16 @@ The application provides real-time insights into the crypto market, with feature
 --------------------------------------------------------------
 
 • API Integration is done through fetch and Axios for making HTTP requests to CoinGecko API. 
-------------------------------------------------------------------
+
+------------------------------------------------------------------------
 
 • Leveraged Recharts to create interactive, responsive charts and graphs, enhancing data-driven insights.
 
------------------------------------------------------
+------------------------------------------------------------------------
 
  ##Tools Used: JavaScript, ReactJS, State Management, Redux Toolkit, ReCharts, Tailwind CSS, Firebase
 
------------------------------------------------------
+-----------------------------------------------------------------------------
 
 
 • The app pulls real-time data for hundreds of cryptocurrencies from the CoinGecko API.
