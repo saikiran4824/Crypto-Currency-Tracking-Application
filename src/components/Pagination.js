@@ -160,12 +160,7 @@ const Pagination = () => {
 
           {page !== TotalNumber ? (
             <li>
-              <button
-                onClick={() => setPage(TotalNumber)}
-                className="ouline-0 hover:text-cyan  rounded-full w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5"
-              >
-                {TotalNumber}
-              </button>
+             
             </li>
           ) : null}
           <li>
