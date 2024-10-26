@@ -26,29 +26,23 @@ function ModalComponent() {
     <>
       {isOpen && (
         <div
-  className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-90"
->
-  <div
-    className="bg-gray-200 rounded-lg shadow-xl p-4 w-11/12 mx-auto md:w-1/2 lg:w-1/3"
-  >
-    <h1
-      className="text-lg font-bold mb-4 text-cyan"
-    >
-      Please note:
-    </h1>
-    <h1
-      className="text-lg font-bold mt-4 text-cyan"
-    >
-      Working on Mobile Optimization
-    </h1>
-    <p
-      className="text-sm text-cyan"
-    >
-      This application is optimized for Desktop. Please switch to Desktop mode for an optimal experience. This notification will automatically dismiss when you switch to Desktop mode. Thank you!
-    </p>
-    
-  </div>
-</div>
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
+        >
+          <div
+            className="bg-white rounded-lg shadow-xl p-4 w-full"
+          >
+            <h2
+              className="text-xl font-bold mb-4 text-cyan"
+            >
+              Please note:
+            </h2>
+            <p
+              className="text-sm text-gray-100"
+            >
+              Note: This application is optimized for Desktop. Please switch to Desktop mode for an optimal experience. Mobile version underway. This notification will automatically dismiss when you switch to Desktop mode. Thank you! </p>
+           
+          </div>
+        </div>
       )}
     </>
   );
