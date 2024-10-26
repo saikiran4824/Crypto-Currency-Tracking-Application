@@ -22,7 +22,7 @@ function Filters() {
         <Search />
         <div className={`hidden md:hidden lg:block ${isMobile ? 'block' : 'hidden'}`}>
           <p className="text-sm text-gray-500">
-            Best viewed on desktop. Mobile optimization in progress.
+            
           </p>
         </div>
       </div>

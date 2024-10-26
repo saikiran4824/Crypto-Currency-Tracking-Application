@@ -1,4 +1,3 @@
-// ModalComponent.js
 import { useState, useEffect } from 'react';
 
 function ModalComponent() {
@@ -14,44 +13,34 @@ function ModalComponent() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
+  useEffect(() => {
+    if (isMobile) {
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 2000); 
+    }
+  }, [isMobile]);
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
+ 
   return (
     <>
-      {isMobile && (
-        <button
-          className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded"
-          onClick={handleOpen}
-        >
-          Open Modal
-        </button>
-      )}
-
       {isOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-50"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90"
         >
           <div
             className="bg-white rounded-lg shadow-xl p-4 w-full"
           >
-            <h2 className="text-xl font-bold mb-4">
+            <h2
+              className="text-xl font-bold mb-4 text-black"
+            >
               Please note:
             </h2>
-            <p className="text-sm text-gray-500">
-              This application is optimized for mobile devices. For a better viewing experience, please switch to mobile mode or access this application on a mobile device.
-            </p>
-            <button
-              className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded"
-              onClick={handleClose}
+            <p
+              className="text-sm text-gray-100"
             >
-              Close
-            </button>
+              Note: This application is optimized for Desktop. Please switch to Desktop mode for an optimal experience. Mobile version underway. This notification will automatically dismiss when you switch to Desktop mode. Thank you! </p>
+           
           </div>
         </div>
       )}
