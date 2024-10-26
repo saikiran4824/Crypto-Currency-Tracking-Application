@@ -32,7 +32,7 @@ function ModalComponent() {
             className="bg-white rounded-lg shadow-xl p-4 w-full"
           >
             <h2
-              className="text-xl font-bold mb-4 text-black"
+              className="text-xl font-bold mb-4 text-cyan"
             >
               Please note:
             </h2>
