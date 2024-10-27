@@ -17,7 +17,7 @@ function ModalComponent() {
     if (isMobile) {
       setTimeout(() => {
         setIsOpen(true);
-      }, 2000); 
+      }, 1000); 
     }
   }, [isMobile]);
 
@@ -26,10 +26,10 @@ function ModalComponent() {
     <>
       {isOpen && (
         <div
-  className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-90"
+  className="fixed inset-0 z-50 flex items-center justify-center bg-gray-200 "
 >
   <div
-    className="bg-gray-200 rounded-lg shadow-xl p-4 w-11/12 mx-auto md:w-1/2 lg:w-1/3"
+   className =  "bg-gray-200 rounded-lg p-4 w-11/12 mx-auto h-2/3 md:w-1/2 md:h-3/4 lg:w-1/3 lg:h-5/6 "
   >
     <h2
       className="text-lg font-bold mb-4 text-cyan"
