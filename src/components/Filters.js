@@ -20,12 +20,12 @@ function Filters() {
         flex flex-col md:flex-row items-center justify-center md:justify-between p-4 md:p-2 space-y-2 md:space-y-0"
       >
         <Search />
-        <div className={`hidden md:hidden lg:block ${isMobile ? 'block' : 'hidden'}`}>
-          <p className="text-sm text-gray-500">
-            
+        
+          <p className=" text-cyan text-lg">
+            (click on the coin🪙 to see details and graphs, click on star⭐ to save)
           </p>
         </div>
-      </div>
+      
     </>
   );
 };
