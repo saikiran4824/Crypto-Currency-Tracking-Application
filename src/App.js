@@ -9,12 +9,10 @@ function App() {
         <p className='text-red-700'>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
+        <a className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
       </header>

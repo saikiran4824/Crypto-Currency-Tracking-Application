@@ -1,13 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 const Navigation = () => {
   return (
+    <>
+    <Logo/>
     <nav
-      className="w-[40%] mt-16 flex justify-around align-middle
-    border border-cyan rounded-lg
-    "
-    >
+      className="m-2 mt-20 p-2 flex align-middle
+    border border-cyan rounded-lg">
       <NavLink
         to="/"
         end
@@ -17,9 +18,9 @@ const Navigation = () => {
 ${
   isActive
     ? "bg-cyan text-gray-300"
-    : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
+    : "bg-gray-200 text-gray-100 hover:text-cyan active:bg-cyan active:text-gray-300"
 }
-    border-0 cursor-pointer rounded capitalize font-semibold`;
+     flex items-center  cursor-pointer px-2 rounded-sm  capitalize font-semibold`;
         }}
       >
         Crypto
@@ -35,7 +36,7 @@ ${
     ? "bg-cyan text-gray-300"
     : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
 }
-    border-0 cursor-pointer rounded capitalize font-semibold`;
+    cursor-pointer px-2 rounded-sm  capitalize font-semibold`;
         }}
       >
         trending
@@ -51,13 +52,15 @@ ${
     ? "bg-cyan text-gray-300"
     : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
 }
-    border-0 cursor-pointer rounded capitalize font-semibold`;
+     cursor-pointer px-2 rounded-sm  capitalize font-semibold`;
         }}
       >
         saved
       </NavLink>
     </nav>
+    </>
   );
 };
+
 
 export default Navigation;

@@ -5,7 +5,6 @@ import Navigation from "../components/Navigation";
 import { CryptoProvider } from "../context/CryptoContext";
 import { StorageProvider } from "../context/StorageContext";
 import { TrendingProvider } from "../context/TrendingContext";
-import ModalComponent from '../components/modal';
 
 
 const Home = () => {
@@ -20,7 +19,6 @@ const Home = () => {
           >
             <div className="w-screen h-screen bg-gray-300 fixed -z-10" />
             <Logo />
-            <ModalComponent />
             <Navigation />
 
             <Outlet />

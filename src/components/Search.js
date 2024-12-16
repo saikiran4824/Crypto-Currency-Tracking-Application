@@ -36,7 +36,7 @@ const SearchInput = ({ handleSearch }) => {
           name="search"
           onChange={handleInput}
           value={searchText}
-          className="w-full rounded bg-gray-200 placeholder:text-gray-400 pl-2 py-2 outline-0 border border-transparent focus:border-cyan"
+          className="w-full rounded bg-gray-200 placeholder:text-gray-400 pl-2  outline-0 border focus:border-cyan"
           placeholder="Search here..."
         />
         <button type="submit" className="absolute right-2 cursor-pointer">
@@ -85,7 +85,7 @@ const Search = () => {
   }, 2000);
 
   return (
-    <div className="relative flex justify-center items-center py-6">
+    <div className="relative flex justify-center items-center py-2">
       <SearchInput handleSearch={debounceFunc} />
     </div>
   );

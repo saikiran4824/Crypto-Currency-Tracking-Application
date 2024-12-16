@@ -25,11 +25,7 @@ const SaveBtn = ({ data }) => {
     >
       <svg
         className={`w-[1.5rem] ml-1.5 
-                      ${
-                        allCoins.includes(data.id)
-                          ? "fill-cyan"
-                          : "fill-gray-100"
-                      }
+                      ${allCoins.includes(data.id) ? "fill-cyan" : "fill-gray-100"}
                        hover:fill-cyan`}
         width="30"
         height="30"
@@ -51,13 +47,13 @@ const SaveBtn = ({ data }) => {
 };
 
 const TableComponent = () => {
-  let { cryptoData, currency,error } = useContext(CryptoContext);
+  let { cryptoData, currency, error } = useContext(CryptoContext);
 
   return (
     <>
-      <div className="flex flex-col mt-9 border border-gray-100 rounded overflow-x-auto">
+      <div className="flex flex-col mt-9 border border-gray-100 rounded overflow-x-auto container mx-auto">
         {cryptoData ? (
-          <table className="w-full table-auto">
+          <table className="w-full table-auto hidden lg:table">
             <thead
               className="capitalize text-base text-gray-100 
             font-medium border-b border-gray-100
@@ -75,81 +71,71 @@ const TableComponent = () => {
               </tr>
             </thead>
             <tbody>
-              {cryptoData.map((data) => {
-                return (
-                  <tr
-                    key={data.id}
-                    className="text-center text-base border-b border-gray-100 
+              {cryptoData.map((data) => (
+                <tr
+                  key={data.id}
+                  className="text-center text-base border-b border-gray-100 
             hover:bg-gray-200 last:border-b-0
             "
-                  >
-                    <td className="py-4 flex items-center uppercase">
-                      <SaveBtn data={data} />
-                      <img
-                        className="w-[1.2rem] h-[1.2rem] mx-1.5"
-                        src={data.image}
-                        alt={data.name}
-                      />
-                      <span>
-                        <Link to={`/${data.id}`} className="cursor-pointer">
-                          {data.symbol}
-                        </Link>
-                      </span>
-                    </td>
-                    <td className="py-4">
+                >
+                  <td className="py-4 flex items-center uppercase">
+                    <SaveBtn data={data} />
+                    <img
+                      className="w-[1.2rem] h-[1.2rem] mx-1.5"
+                      src={data.image}
+                      alt={data.name}
+                    />
+                    <span>
                       <Link to={`/${data.id}`} className="cursor-pointer">
-                        {data.name}
+                        {data.symbol}
                       </Link>
-                    </td>
-                    <td className="py-4">
-                      {new Intl.NumberFormat("en-IN", {
-                        style: "currency",
-                        currency: currency,
-                      }).format(data.current_price)}
-                    </td>
-                    <td className="py-4">{data.total_volume}</td>
-                    <td className="py-4">
-                      {data.market_cap_change_percentage_24h}%
-                    </td>
-                    <td
-                      className={
-                        data.price_change_percentage_1h_in_currency > 0
-                          ? "text-green py-4 lg:table-cell hidden "
-                          : "text-red py-4  lg:table-cell hidden"
-                      }
-                    >
-                      {Number(
-                        data.price_change_percentage_1h_in_currency
-                      ).toFixed(2)}
-                    </td>
-                    <td
-                      className={
-                        data.price_change_percentage_24h_in_currency > 0
-                          ? "text-green py-4 lg:table-cell hidden"
-                          : "text-red py-4  lg:table-cell hidden"
-                      }
-                    >
-                      {Number(
-                        data.price_change_percentage_24h_in_currency
-                      ).toFixed(2)}
-                    </td>
-                    <td
-                      className={
-                        data.price_change_percentage_7d_in_currency > 0
-                          ? "text-green py-4 lg:table-cell hidden"
-                          : "text-red py-4  lg:table-cell hidden"
-                      }
-                    >
-                      {Number(
-                        data.price_change_percentage_7d_in_currency
-                      ).toFixed(2)}
-                    </td>
-                  </tr>
-                );
-              })}
+                    </span>
+                  </td>
+                  <td className="py-4">
+                    <Link to={`/${data.id}`} className="cursor-pointer">
+                      {data.name}
+                    </Link>
+                  </td>
+                  <td className="py-4">
+                    {new Intl.NumberFormat("en-IN", {
+                      style: "currency",
+                      currency: currency,
+                    }).format(data.current_price)}
+                  </td>
+                  <td className="py-4">{data.total_volume}</td>
+                  <td className="py-4">{data.market_cap_change_percentage_24h}%</td>
+                  <td
+                    className={
+                      data.price_change_percentage_1h_in_currency > 0
+                        ? "text-green py-4 lg:table-cell hidden "
+                        : "text-red py-4  lg:table-cell hidden"
+                    }
+                  >
+                    {Number(data.price_change_percentage_1h_in_currency).toFixed(2)}
+                  </td>
+                  <td
+                    className={
+                      data.price_change_percentage_24h_in_currency > 0
+                        ? "text-green py-4 lg:table-cell hidden"
+                        : "text-red py-4  lg:table-cell hidden"
+                    }
+                  >
+                    {Number(data.price_change_percentage_24h_in_currency).toFixed(2)}
+                  </td>
+                  <td
+                    className={
+                      data.price_change_percentage_7d_in_currency > 0
+                        ? "text-green py-4 lg:table-cell hidden"
+                        : "text-red py-4  lg:table-cell hidden"
+                    }
+                  >
+                    {Number(data.price_change_percentage_7d_in_currency).toFixed(2)}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
-        ) : (!error.data && !error.search) ? (
+        ) : !error.data && !error.search ? (
           <div className="w-full min-h-[50vh] flex justify-center items-center">
             <div
               className="w-8 h-8 border-4 border-solid border-cyan rounded-full border-b-gray-200 animate-spin"
@@ -158,31 +144,50 @@ const TableComponent = () => {
             <span className="text-base ml-2">please wait...</span>
           </div>
         ) : error.data || error.search ? (
-          <h1 className="min-h-[60vh] text-lg text-red flex items-center justify-center ">
+          <h1 className="min-h-[60vh] text-lg text-red flex items-center justify-center">
             {error.data
               ? error.data
               : error.search
               ? error.search
               : "Something unexpected happened!"}
-              {/* Here we have use multi chain conditions using ternary operator/ this is not
-              covered in the video but for the example and some improvements */}
           </h1>
         ) : null}
       </div>
-      <div className="flex items-center justify-between mt-4 capitalize h-[2rem]">
-        <span>
-          Data provided by{" "}
-          <a
-            className="text-cyan"
-            href="http://www.coingecko.com"
-            rel="noreferrer"
-            target={"_blank"}
-          >
-            CoinGecko
-          </a>
-        </span>
-        <Pagination />
+
+      {/* Mobile View - Card Layout */}
+      <div className="lg:hidden grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-4">
+        {cryptoData &&
+          cryptoData.map((data) => (
+            <div
+              key={data.id}
+              className=" border border-gray-100 p-4 rounded shadow-sm"
+            >
+              <div className="flex items-center justify-between">
+                <img
+                  className="w-8 h-8 mx-3"
+                  src={data.image}
+                  alt={data.name}
+                />
+                <Link
+                  to={`/${data.id}`} className="text-lg font-medium text-blue-500">
+                  {data.symbol}
+                </Link>
+                <SaveBtn data={data} />
+              </div>
+              <p className="py-2 font-bold">
+                {new Intl.NumberFormat("en-IN", {
+                  style: "currency",
+                  currency: currency,
+                }).format(data.current_price)}
+              </p>
+              <p className="text-sm text-gray-500">Volume: {data.total_volume}</p>
+              <p className="text-sm text-gray-500">
+                Market Cap Change: {data.market_cap_change_percentage_24h}%
+              </p>
+            </div>
+          ))}
       </div>
+      <Pagination/>
     </>
   );
 };

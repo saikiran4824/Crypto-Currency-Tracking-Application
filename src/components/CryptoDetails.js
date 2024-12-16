@@ -71,13 +71,11 @@ const CryptoDetails = () => {
                   className="text-sm
         py-0.5 px-2.5 ml-2 bg-cyan text-cyan bg-opacity-25
         rounded uppercase
-        "
-                >
+        ">
                   {data.symbol}
                 </span>
               </div>
-
-              <div className="flex w-full mt-6">
+                <div className="flex w-full mt-6">
                 <div className="flex flex-col w-full">
                   <div className="flex justify-between">
                     <span className="text-sm capitalize text-gray-100">
@@ -86,11 +84,11 @@ const CryptoDetails = () => {
                     <div
                       className={`text-sm px-1 ml-2 font-medium flex items-center
           rounded uppercase bg-opacity-25
-          ${
+           ${
             data.market_data.price_change_percentage_24h > 0
               ? "bg-green text-green"
               : "bg-red text-red"
-          }
+           }
           `}
                     >
                       <span>

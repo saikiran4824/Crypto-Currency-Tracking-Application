@@ -7,8 +7,8 @@ const Logo = () => {
     <Link
       to="/"
       className="
-     absolute top-[1.5rem] left-[1.5rem] [text-decoration:none]
-text-lg text-cyan flex items-center
+     absolute 
+text-xl font-bold text-cyan flex items-center p-2 m-2
      "
     >
       

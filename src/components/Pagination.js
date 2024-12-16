@@ -26,7 +26,7 @@ const PerPage = () => {
       <label
         htmlFor="perpage"
         className="relative flex justify-center items-center
-          mr-2 font-bold
+          mr-2 font-bold hidden md:block
           "
       >
         per page:{" "}
@@ -40,11 +40,11 @@ const PerPage = () => {
         placeholder="10"
         className="w-16 rounded bg-gray-200 placeholder:text-gray-100
      pl-2 required outline-0 border border-transparent 
-     focus:border-cyan leading-4
+     focus:border-cyan leading-4 hidden md:block
      "
       />
       <button type="submit" className="ml-1 cursor-pointer">
-        <img src={submitIcon} alt="submit" className="w-full h-auto" />
+        <img src={submitIcon} alt="submit" className="w-full h-auto hidden md:block" />
       </button>
     </form>
   );
