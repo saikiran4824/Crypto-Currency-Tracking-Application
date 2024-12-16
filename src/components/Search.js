@@ -28,7 +28,7 @@ const SearchInput = ({ handleSearch }) => {
   return (
     <>
       <form
-        className="w-full max-w-md mx-auto relative flex items-center font-nunito"
+        className="w-full max-w-md mx-auto relative justify-center flex flex-col sm:flex-row items-center font-nunito"
         onSubmit={handleSubmit}
       >
         <input
@@ -36,11 +36,11 @@ const SearchInput = ({ handleSearch }) => {
           name="search"
           onChange={handleInput}
           value={searchText}
-          className="w-full rounded bg-gray-200 placeholder:text-gray-400 pl-2  outline-0 border focus:border-cyan"
+          className="w-full sm:w-[300px] rounded bg-gray-200 placeholder:text-gray-400 mx-6 outline-0 border focus:border-cyan my-2 sm:my-0"
           placeholder="Search here..."
         />
-        <button type="submit" className="absolute right-2 cursor-pointer">
-          <img src={searchIcon} className="w-full h-auto" alt="search" />
+        <button type="submit" className="absolute right-2 pr-4 cursor-pointer top-2 sm:top-0">
+          <img src={searchIcon} className="w-full h-auto " alt="search" />
         </button>
       </form>
       {searchText.length > 0 ? (
@@ -52,13 +52,11 @@ const SearchInput = ({ handleSearch }) => {
               <li
                 className="flex items-center ml-4 my-2 cursor-pointer"
                 key={coin.id}
-                onClick={() => selectCoin(coin.id)}
-              >
+                onClick={() => selectCoin(coin.id)}>
                 <img
                   className="w-[1rem] h-[1rem] mx-1.5"
                   src={coin.thumb}
-                  alt={coin.name}
-                />
+                  alt={coin.name} />
                 <span>{coin.name}</span>
               </li>
             ))
@@ -87,6 +85,7 @@ const Search = () => {
   return (
     <div className="relative flex justify-center items-center py-2">
       <SearchInput handleSearch={debounceFunc} />
+      
     </div>
   );
 };

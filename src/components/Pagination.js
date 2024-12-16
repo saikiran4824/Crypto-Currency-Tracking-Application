@@ -26,7 +26,7 @@ const PerPage = () => {
       <label
         htmlFor="perpage"
         className="relative flex justify-center items-center
-          mr-2 font-bold hidden md:block
+          mr-2 font-bold
           "
       >
         per page:{" "}
@@ -40,11 +40,11 @@ const PerPage = () => {
         placeholder="10"
         className="w-16 rounded bg-gray-200 placeholder:text-gray-100
      pl-2 required outline-0 border border-transparent 
-     focus:border-cyan leading-4 hidden md:block
+     focus:border-cyan leading-4
      "
       />
       <button type="submit" className="ml-1 cursor-pointer">
-        <img src={submitIcon} alt="submit" className="w-full h-auto hidden md:block" />
+        <img src={submitIcon} alt="submit" className="w-full h-auto" />
       </button>
     </form>
   );
@@ -90,9 +90,9 @@ const Pagination = () => {
 
   if (cryptoData && cryptoData.length >= perPage) {
     return (
-      <div className="flex items-center">
+      <div className="flex flex-wrap items-center m-4">
         <PerPage />
-        <ul className="flex items-center justify-end text-sm">
+        <ul className="flex items-center justify-between text-sm p-2">
           <li className="flex items-center">
             <button className="outline-0 hover:text-cyan w-8" onClick={prev}>
               <img
@@ -160,7 +160,12 @@ const Pagination = () => {
 
           {page !== TotalNumber ? (
             <li>
-             
+              <button
+                onClick={() => setPage(TotalNumber)}
+                className="ouline-0 hover:text-cyan  rounded-full w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5"
+              >
+                {TotalNumber}
+              </button>
             </li>
           ) : null}
           <li>
