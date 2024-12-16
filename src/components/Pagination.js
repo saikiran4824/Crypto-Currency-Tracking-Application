@@ -90,7 +90,7 @@ const Pagination = () => {
 
   if (cryptoData && cryptoData.length >= perPage) {
     return (
-      <div className="flex flex-wrap items-center m-4">
+      <div className="flex flex-wrap items-center justify-end m-4">
         <PerPage />
         <ul className="flex items-center justify-between text-sm p-2">
           <li className="flex items-center">
@@ -178,6 +178,13 @@ const Pagination = () => {
             </button>
           </li>
         </ul>
+        <div className="
+     absolute items-center justify-center
+text-sm  text-cyan flex mt-20
+     "
+    >
+      
+<h1>Crypto Chain - Crypto Currencies Tracking Application</h1></div>
       </div>
     );
   } else {

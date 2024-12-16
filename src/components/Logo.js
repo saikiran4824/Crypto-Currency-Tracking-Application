@@ -7,15 +7,16 @@ const Logo = () => {
     <Link
       to="/"
       className="
-     absolute 
-text-xl font-bold text-cyan flex items-center p-2 m-2
+     absolute items-center justify-center
+text-xl  text-cyan flex mt-2 font-bold
      "
     >
       
-<h1>Crypto Chain</h1>
-    
+<h1>Crypto Chain </h1>
+
      
     </Link>
+    
   );
 };
 

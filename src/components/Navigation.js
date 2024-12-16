@@ -36,7 +36,7 @@ ${
     ? "bg-cyan text-gray-300"
     : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
 }
-    cursor-pointer px-2 rounded-sm  capitalize font-semibold`;
+    cursor-pointer   capitalize font-semibold`;
         }}
       >
         trending
@@ -52,7 +52,7 @@ ${
     ? "bg-cyan text-gray-300"
     : "bg-gray-200 text-gray-100hover:text-cyan active:bg-cyan active:text-gray-300"
 }
-     cursor-pointer px-2 rounded-sm  capitalize font-semibold`;
+     cursor-pointer  capitalize font-semibold`;
         }}
       >
         saved

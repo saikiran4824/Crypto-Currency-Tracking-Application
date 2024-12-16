@@ -92,7 +92,7 @@ const Chart = ({ id }) => {
   }, [id, type, days]);
 
   return (
-    <div className="w-full h-[60%]">
+    <div className="w-full  h-[90%]">
       <ChartComponent data={chartData} currency={currency} type={type} />
       <div className="flex">
         <button
@@ -111,8 +111,7 @@ const Chart = ({ id }) => {
               ? "bg-cyan text-cyan"
               : "bg-gray-200 text-gray-100"
           }`}
-          onClick={() => setType("market_caps")}
-        >
+          onClick={() => setType("market_caps")}>
           market caps
         </button>
         <button
@@ -134,14 +133,7 @@ const Chart = ({ id }) => {
         >
           7d
         </button>
-        <button
-          className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-            days === 14 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
-          }`}
-          onClick={() => setDays(14)}
-        >
-          14d
-        </button>
+       
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
             days === 30 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
