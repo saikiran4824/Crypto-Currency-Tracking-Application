@@ -1,4 +1,4 @@
-import { createContext, useLayoutEffect, useState } from "react";
+import { createContext, useLayoutEffect, useState } from 'react';
 
 // create context object
 export const TrendingContext = createContext({});

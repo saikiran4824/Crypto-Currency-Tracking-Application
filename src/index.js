@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import Crypto from './pages/Crypto';
 import Trending from './pages/Trending';
@@ -13,45 +10,42 @@ import CryptoDetails from './components/CryptoDetails';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Home />,
-    children:[
+    children: [
       {
-        path:"/",
+        path: '/',
         element: <Crypto />,
         children: [
           {
-            path:":coinId",
-            element: <CryptoDetails />
-          }
-        ]
+            path: ':coinId',
+            element: <CryptoDetails />,
+          },
+        ],
       },
       {
-        path:"/trending",
+        path: '/trending',
         element: <Trending />,
         children: [
           {
-            path:":coinId",
-            element: <CryptoDetails />
-          }
-        ]
+            path: ':coinId',
+            element: <CryptoDetails />,
+          },
+        ],
       },
       {
-        path:"/saved",
+        path: '/saved',
         element: <Saved />,
         children: [
           {
-            path:":coinId",
-            element: <CryptoDetails />
-          }
-        ]
-      }
-    ]
-
-
+            path: ':coinId',
+            element: <CryptoDetails />,
+          },
+        ],
+      },
+    ],
   },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

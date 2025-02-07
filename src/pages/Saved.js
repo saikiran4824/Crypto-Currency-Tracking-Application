@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Outlet } from "react-router-dom";
-import { StorageContext } from "../context/StorageContext";
-import { CryptoContext } from "./../context/CryptoContext";
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Outlet } from 'react-router-dom';
+import { StorageContext } from '../context/StorageContext';
+import { CryptoContext } from './../context/CryptoContext';
+import { Link } from 'react-router-dom';
 
 const SaveBtn = ({ data }) => {
   const { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
@@ -25,7 +25,7 @@ const SaveBtn = ({ data }) => {
     >
       <svg
         className={`w-[1.5rem] ml-1.5 
-                      ${allCoins.includes(data.id) ? "fill-cyan" : ""}
+                      ${allCoins.includes(data.id) ? 'fill-cyan' : ''}
                        hover:fill-cyan`}
         width="30"
         height="30"
@@ -86,8 +86,8 @@ const Saved = () => {
                       </Link>
                     </td>
                     <td className="py-4">
-                      {new Intl.NumberFormat("en-IN", {
-                        style: "currency",
+                      {new Intl.NumberFormat('en-IN', {
+                        style: 'currency',
                         currency: currency,
                       }).format(data.current_price)}
                     </td>
@@ -95,38 +95,48 @@ const Saved = () => {
                     <td
                       className={
                         data.market_cap_change_percentage_24h < 0
-                          ? "py-4 text-red"
-                          : "py-4 text-green"
+                          ? 'py-4 text-red'
+                          : 'py-4 text-green'
                       }
                     >
-                      {Number(data.market_cap_change_percentage_24h).toFixed(2)}%
+                      {Number(data.market_cap_change_percentage_24h).toFixed(2)}
+                      %
                     </td>
                     <td
                       className={
                         data.price_change_percentage_1h_in_currency < 0
-                          ? "py-4 text-red"
-                          : "py-4 text-green"
+                          ? 'py-4 text-red'
+                          : 'py-4 text-green'
                       }
                     >
-                      {Number(data.price_change_percentage_1h_in_currency).toFixed(2)}%
+                      {Number(
+                        data.price_change_percentage_1h_in_currency
+                      ).toFixed(2)}
+                      %
                     </td>
                     <td
                       className={
                         data.price_change_percentage_24h_in_currency < 0
-                          ? "py-4 text-red"
-                          : "py-4 text-green"
+                          ? 'py-4 text-red'
+                          : 'py-4 text-green'
                       }
                     >
-                      {Number(data.price_change_percentage_24h_in_currency).toFixed(2)}%
+                      {Number(
+                        data.price_change_percentage_24h_in_currency
+                      ).toFixed(2)}
+                      %
                     </td>
                     <td
                       className={
                         data.price_change_percentage_7d_in_currency < 0
-                          ? "py-4 text-red"
-                          : "py-4 text-green"
+                          ? 'py-4 text-red'
+                          : 'py-4 text-green'
                       }
                     >
-                      {Number(data.price_change_percentage_7d_in_currency).toFixed(2)}%
+                      {Number(
+                        data.price_change_percentage_7d_in_currency
+                      ).toFixed(2)}
+                      %
                     </td>
                   </tr>
                 ))}
@@ -166,8 +176,8 @@ const Saved = () => {
                   <div className="flex flex-col items-center">
                     <span className="text-gray-500">Price</span>
                     <span>
-                      {new Intl.NumberFormat("en-IN", {
-                        style: "currency",
+                      {new Intl.NumberFormat('en-IN', {
+                        style: 'currency',
                         currency: currency,
                       }).format(data.current_price)}
                     </span>
@@ -177,11 +187,12 @@ const Saved = () => {
                     <span
                       className={
                         data.market_cap_change_percentage_24h < 0
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? 'text-red-500'
+                          : 'text-green-500'
                       }
                     >
-                      {Number(data.market_cap_change_percentage_24h).toFixed(2)}%
+                      {Number(data.market_cap_change_percentage_24h).toFixed(2)}
+                      %
                     </span>
                   </div>
                 </div>
@@ -193,11 +204,14 @@ const Saved = () => {
                     <span
                       className={
                         data.price_change_percentage_1h_in_currency < 0
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? 'text-red-500'
+                          : 'text-green-500'
                       }
                     >
-                      {Number(data.price_change_percentage_1h_in_currency).toFixed(2)}%
+                      {Number(
+                        data.price_change_percentage_1h_in_currency
+                      ).toFixed(2)}
+                      %
                     </span>
                   </div>
                   <div className="flex flex-col items-center">
@@ -205,11 +219,14 @@ const Saved = () => {
                     <span
                       className={
                         data.price_change_percentage_24h_in_currency < 0
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? 'text-red-500'
+                          : 'text-green-500'
                       }
                     >
-                      {Number(data.price_change_percentage_24h_in_currency).toFixed(2)}%
+                      {Number(
+                        data.price_change_percentage_24h_in_currency
+                      ).toFixed(2)}
+                      %
                     </span>
                   </div>
                   <div className="flex flex-col items-center">
@@ -217,11 +234,14 @@ const Saved = () => {
                     <span
                       className={
                         data.price_change_percentage_7d_in_currency < 0
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? 'text-red-500'
+                          : 'text-green-500'
                       }
                     >
-                      {Number(data.price_change_percentage_7d_in_currency).toFixed(2)}%
+                      {Number(
+                        data.price_change_percentage_7d_in_currency
+                      ).toFixed(2)}
+                      %
                     </span>
                   </div>
                 </div>
@@ -233,8 +253,6 @@ const Saved = () => {
             </h1>
           )}
         </div>
-
-        
       </div>
     </section>
   );

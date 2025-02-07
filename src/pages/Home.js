@@ -1,11 +1,10 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-import Logo from "../components/Logo";
-import Navigation from "../components/Navigation";
-import { CryptoProvider } from "../context/CryptoContext";
-import { StorageProvider } from "../context/StorageContext";
-import { TrendingProvider } from "../context/TrendingContext";
-
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Logo from '../components/Logo';
+import Navigation from '../components/Navigation';
+import { CryptoProvider } from '../context/CryptoContext';
+import { StorageProvider } from '../context/StorageContext';
+import { TrendingProvider } from '../context/TrendingContext';
 
 const Home = () => {
   return (

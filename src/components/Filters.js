@@ -1,11 +1,10 @@
-import React, { useContext, useRef } from "react";
-import Search from "./Search";
-
-
-import { CryptoContext } from "./../context/CryptoContext";
+import React, { useContext } from 'react';
+import Search from './Search';
+import { CryptoContext } from './../context/CryptoContext';
 
 const Filters = () => {
-  let {  setSortBy, resetFunction } = useContext(CryptoContext);
+  let { setSortBy, resetFunction } = useContext(CryptoContext);
+
   const handleSort = (e) => {
     e.preventDefault();
     let val = e.target.value;
@@ -13,23 +12,16 @@ const Filters = () => {
   };
 
   return (
-    <div
-      className="w-full border-2 border-gray-100 rounded-lg flex px-6 sm:px-0 flex-wrap items-center justify-between relative min-h-[3rem]"
-
-    >
+    <div className="w-full border-gray-100 flex px-6 sm:px-0 flex-wrap items-center justify-between relative min-h-[3rem]">
       <Search />
       <div className="flex mr-7">
-        
-
         <label className="relative flex justify-center pb-4 sm:pb-0 items-center">
           <span className="font-bold mr-2">sort by: </span>
           <select
             name="sortby"
-            className="rounded bg-gray-200 text-base 
-           pl-2 pr-10 py-0.5  leading-4 capitalize focus:outline-0
-           "
-            onClick={handleSort}
-           >
+            className="rounded bg-gray-200 text-base pl-2 pr-10 py-0.5 leading-4 capitalize focus:outline-0"
+            onMouseEnter={handleSort} // Trigger on hover
+          >
             <option value="market_cap_desc">market cap desc</option>
             <option value="market_cap_asc">market cap asc</option>
             <option value="volume_desc">volume desc</option>
@@ -39,12 +31,9 @@ const Filters = () => {
             <option value="gecko_desc">gecko desc</option>
             <option value="gecko_asc">gecko asc</option>
           </select>
-        
         </label>
         <button
-          className="w-[2rem] ml-0 sm:ml-4 hover:scale-110 transition-all transition-ease
-        relative
-        "
+          className="w-[2rem] ml-0 sm:ml-4 hover:scale-110 transition-all transition-ease relative"
           onClick={resetFunction}
         >
           <svg
@@ -54,9 +43,9 @@ const Filters = () => {
             viewBox="0 0 24 24"
             className="w-full h-full fill-cyan pb-4 sm:pb-0"
             style={{
-              msTransform: "rotate(360deg)",
-              WebkitTransform: "rotate(360deg)",
-              transform: "rotate(360deg)",
+              msTransform: 'rotate(360deg)',
+              WebkitTransform: 'rotate(360deg)',
+              transform: 'rotate(360deg)',
             }}
           >
             <path d="M12 16c1.671 0 3-1.331 3-3s-1.329-3-3-3-3 1.331-3 3 1.329 3 3 3z" />

@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { CryptoContext } from "./../context/CryptoContext";
-import Pagination from "./Pagination";
-import { StorageContext } from "./../context/StorageContext";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CryptoContext } from './../context/CryptoContext';
+import Pagination from './Pagination';
+import { StorageContext } from './../context/StorageContext';
 
 const SaveBtn = ({ data }) => {
   const { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
@@ -25,7 +25,7 @@ const SaveBtn = ({ data }) => {
     >
       <svg
         className={`w-[1.5rem] ml-1.5 
-                      ${allCoins.includes(data.id) ? "fill-cyan" : "fill-gray-100"}
+                      ${allCoins.includes(data.id) ? 'fill-cyan' : 'fill-gray-100'}
                        hover:fill-cyan`}
         width="30"
         height="30"
@@ -97,39 +97,47 @@ const TableComponent = () => {
                     </Link>
                   </td>
                   <td className="py-4">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                     }).format(data.current_price)}
                   </td>
                   <td className="py-4">{data.total_volume}</td>
-                  <td className="py-4">{data.market_cap_change_percentage_24h}%</td>
+                  <td className="py-4">
+                    {data.market_cap_change_percentage_24h}%
+                  </td>
                   <td
                     className={
                       data.price_change_percentage_1h_in_currency > 0
-                        ? "text-green py-4 lg:table-cell hidden "
-                        : "text-red py-4  lg:table-cell hidden"
+                        ? 'text-green py-4 lg:table-cell hidden '
+                        : 'text-red py-4  lg:table-cell hidden'
                     }
                   >
-                    {Number(data.price_change_percentage_1h_in_currency).toFixed(2)}
+                    {Number(
+                      data.price_change_percentage_1h_in_currency
+                    ).toFixed(2)}
                   </td>
                   <td
                     className={
                       data.price_change_percentage_24h_in_currency > 0
-                        ? "text-green py-4 lg:table-cell hidden"
-                        : "text-red py-4  lg:table-cell hidden"
+                        ? 'text-green py-4 lg:table-cell hidden'
+                        : 'text-red py-4  lg:table-cell hidden'
                     }
                   >
-                    {Number(data.price_change_percentage_24h_in_currency).toFixed(2)}
+                    {Number(
+                      data.price_change_percentage_24h_in_currency
+                    ).toFixed(2)}
                   </td>
                   <td
                     className={
                       data.price_change_percentage_7d_in_currency > 0
-                        ? "text-green py-4 lg:table-cell hidden"
-                        : "text-red py-4  lg:table-cell hidden"
+                        ? 'text-green py-4 lg:table-cell hidden'
+                        : 'text-red py-4  lg:table-cell hidden'
                     }
                   >
-                    {Number(data.price_change_percentage_7d_in_currency).toFixed(2)}
+                    {Number(
+                      data.price_change_percentage_7d_in_currency
+                    ).toFixed(2)}
                   </td>
                 </tr>
               ))}
@@ -148,8 +156,8 @@ const TableComponent = () => {
             {error.data
               ? error.data
               : error.search
-              ? error.search
-              : "Something unexpected happened!"}
+                ? error.search
+                : 'Something unexpected happened!'}
           </h1>
         ) : null}
       </div>
@@ -169,25 +177,29 @@ const TableComponent = () => {
                   alt={data.name}
                 />
                 <Link
-                  to={`/${data.id}`} className="text-lg font-medium text-blue-500">
+                  to={`/${data.id}`}
+                  className="text-lg font-medium text-blue-500"
+                >
                   {data.symbol}
                 </Link>
                 <SaveBtn data={data} />
               </div>
               <p className="py-2 font-bold">
-                {new Intl.NumberFormat("en-IN", {
-                  style: "currency",
+                {new Intl.NumberFormat('en-IN', {
+                  style: 'currency',
                   currency: currency,
                 }).format(data.current_price)}
               </p>
-              <p className="text-sm text-gray-500">Volume: {data.total_volume}</p>
+              <p className="text-sm text-gray-500">
+                Volume: {data.total_volume}
+              </p>
               <p className="text-sm text-gray-500">
                 Market Cap Change: {data.market_cap_change_percentage_24h}%
               </p>
             </div>
           ))}
       </div>
-      <Pagination/>
+      <Pagination />
     </>
   );
 };

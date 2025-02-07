@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import { useNavigate, useParams } from "react-router-dom";
-import { useLayoutEffect } from "react";
-import { CryptoContext } from "../context/CryptoContext";
-import Chart from "./Chart";
+import React, { useContext, useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+import { CryptoContext } from '../context/CryptoContext';
+import Chart from './Chart';
 
 const HighLowIndicator = ({ currentPrice, high, low }) => {
   const [green, setGreen] = useState();
@@ -43,7 +43,7 @@ const CryptoDetails = () => {
   }, [coinId]);
 
   const close = () => {
-    navigate("..");
+    navigate('..');
   };
 
   return ReactDOM.createPortal(
@@ -66,19 +66,22 @@ const CryptoDetails = () => {
                   src={data.image.large}
                   alt={data.id}
                 />
-                <h1 className="text-sm md:text-xl capitalize font-medium">{data.name}</h1>
+                <h1 className="text-sm md:text-xl capitalize font-medium">
+                  {data.name}
+                </h1>
                 <span
                   className="text-xs
         py-0.5  ml-2 bg-cyan text-cyan bg-opacity-25
         rounded uppercase
-        ">
+        "
+                >
                   {data.symbol}
                 </span>
               </div>
               <div className="flex  h-full pl-3 mt-3 ">
-              <Chart id={data.id} />
-            </div>
-                <div className="flex w-full mt-2">
+                <Chart id={data.id} />
+              </div>
+              <div className="flex w-full mt-2">
                 <div className="flex flex-col w-full">
                   <div className="flex justify-between">
                     <span className="text-sm capitalize text-gray-100">
@@ -88,9 +91,9 @@ const CryptoDetails = () => {
                       className={`text-sm px-1 ml-2 font-medium flex items-center
                         rounded uppercase bg-opacity-25
            ${
-            data.market_data.price_change_percentage_24h > 0
-              ? "bg-green text-green"
-              : "bg-red text-red"
+             data.market_data.price_change_percentage_24h > 0
+               ? 'bg-green text-green'
+               : 'bg-red text-red'
            }
           `}
                     >
@@ -110,8 +113,8 @@ const CryptoDetails = () => {
                         w-[1rem] ml-0.5
                         ${
                           data.market_data.price_change_percentage_24h > 0
-                            ? "fill-green rotate-180"
-                            : "fill-red"
+                            ? 'fill-green rotate-180'
+                            : 'fill-red'
                         }
                         `}
                       >
@@ -120,8 +123,8 @@ const CryptoDetails = () => {
                     </div>
                   </div>
                   <h2 className="text-lg font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                       maximumSignificantDigits: 5,
                     }).format(data.market_data.current_price[currency])}
@@ -135,8 +138,8 @@ const CryptoDetails = () => {
                     Market Cap
                   </span>
                   <h2 className="text-base font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                       minimumFractionDigits: 0,
                     }).format(data.market_data.market_cap[currency])}
@@ -147,10 +150,10 @@ const CryptoDetails = () => {
                     fully diluted valuation
                   </span>
                   <h2 className="text-base font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
-                      notation: "compact",
+                      notation: 'compact',
                     }).format(
                       data.market_data.fully_diluted_valuation[currency]
                     )}
@@ -163,8 +166,8 @@ const CryptoDetails = () => {
                   total volume
                 </span>
                 <h2 className="text-base font-bold">
-                  {new Intl.NumberFormat("en-IN", {
-                    style: "currency",
+                  {new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
                     currency: currency,
                     minimumFractionDigits: 0,
                   }).format(data.market_data.total_volume[currency])}
@@ -185,8 +188,8 @@ const CryptoDetails = () => {
                     Low 24H
                   </span>
                   <h2 className="text-base font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                       minimumFractionDigits: 5,
                     }).format(data.market_data.low_24h[currency])}
@@ -197,8 +200,8 @@ const CryptoDetails = () => {
                     high 24H
                   </span>
                   <h2 className="text-base font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                       minimumFractionDigits: 5,
                     }).format(data.market_data.high_24h[currency])}
@@ -212,8 +215,8 @@ const CryptoDetails = () => {
                     max supply
                   </span>
                   <h2 className="text-base font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                       minimumFractionDigits: 0,
                     }).format(data.market_data.max_supply)}
@@ -224,28 +227,21 @@ const CryptoDetails = () => {
                     circulating supply
                   </span>
                   <h2 className="text-base font-bold">
-                    {new Intl.NumberFormat("en-IN", {
-                      style: "currency",
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
                       currency: currency,
                       minimumFractionDigits: 0,
                     }).format(data.market_data.circulating_supply)}
                   </h2>
-                  
-                </div> 
-               
+                </div>
               </div>
               <h3 className="text-white py-1">
-                  <span className="text-gray-100 capitalize mr-1">
-                    market cap rank:{" "}
-                  </span>{" "}
-                  {data.market_cap_rank}{" "}
-                </h3> 
-                
-            
+                <span className="text-gray-100 capitalize mr-1">
+                  market cap rank:{' '}
+                </span>{' '}
+                {data.market_cap_rank}{' '}
+              </h3>
             </div>
-            
-
-            
           </div>
         ) : (
           <div
@@ -263,7 +259,7 @@ const CryptoDetails = () => {
         )}
       </div>
     </div>,
-    document.getElementById("model")
+    document.getElementById('model')
   );
 };
 

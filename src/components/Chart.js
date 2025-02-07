@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from 'react';
 
 import {
   LineChart,
@@ -9,18 +9,18 @@ import {
   CartesianGrid,
   Legend,
   ResponsiveContainer,
-} from "recharts";
-import { useContext } from "react";
-import { CryptoContext } from "./../context/CryptoContext";
+} from 'recharts';
+import { useContext } from 'react';
+import { CryptoContext } from './../context/CryptoContext';
 
-function CustomTooltip({ payload, label, active, currency = "usd" }) {
+function CustomTooltip({ payload, label, active, currency = 'usd' }) {
   if (active && payload && payload.length > 0) {
     return (
       <div className="custom-tooltip">
         <p className="label text-sm text-cyan">{`${label} : ${new Intl.NumberFormat(
-          "en-IN",
+          'en-IN',
           {
-            style: "currency",
+            style: 'currency',
             currency: currency,
             minimumFractionDigits: 5,
           }
@@ -34,22 +34,22 @@ function CustomTooltip({ payload, label, active, currency = "usd" }) {
 
 const ChartComponent = ({ data, currency, type }) => {
   return (
-    <ResponsiveContainer height={"90%"}>
+    <ResponsiveContainer height={'90%'}>
       <LineChart width={400} height={400} data={data}>
         <Line
           type="monotone"
           dataKey={type}
           stroke="#14ffec"
-          strokeWidth={"1px"}
+          strokeWidth={'1px'}
         />
         <CartesianGrid stroke="#323232" />
         <XAxis dataKey="date" hide />
-        <YAxis dataKey={type} hide domain={["auto", "auto"]} />
+        <YAxis dataKey={type} hide domain={['auto', 'auto']} />
         <Tooltip
           content={<CustomTooltip />}
           currency={currency}
           cursor={false}
-          wrapperStyle={{ outline: "none" }}
+          wrapperStyle={{ outline: 'none' }}
         />
         <Legend />
       </LineChart>
@@ -60,7 +60,7 @@ const ChartComponent = ({ data, currency, type }) => {
 const Chart = ({ id }) => {
   const [chartData, setChartData] = useState();
   let { currency } = useContext(CryptoContext);
-  const [type, setType] = useState("prices");
+  const [type, setType] = useState('prices');
   const [days, setDays] = useState(7);
 
   useLayoutEffect(() => {
@@ -97,46 +97,47 @@ const Chart = ({ id }) => {
       <div className="flex">
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-            type === "prices"
-              ? "bg-cyan text-cyan"
-              : "bg-gray-200 text-gray-100"
+            type === 'prices'
+              ? 'bg-cyan text-cyan'
+              : 'bg-gray-200 text-gray-100'
           }`}
-          onClick={() => setType("prices")}
+          onClick={() => setType('prices')}
         >
           Price
         </button>
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-            type === "market_caps"
-              ? "bg-cyan text-cyan"
-              : "bg-gray-200 text-gray-100"
+            type === 'market_caps'
+              ? 'bg-cyan text-cyan'
+              : 'bg-gray-200 text-gray-100'
           }`}
-          onClick={() => setType("market_caps")}>
+          onClick={() => setType('market_caps')}
+        >
           market caps
         </button>
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-            type === "total_volumes"
-              ? "bg-cyan text-cyan"
-              : "bg-gray-200 text-gray-100"
+            type === 'total_volumes'
+              ? 'bg-cyan text-cyan'
+              : 'bg-gray-200 text-gray-100'
           }`}
-          onClick={() => setType("total_volumes")}
+          onClick={() => setType('total_volumes')}
         >
           total volumes
         </button>
 
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-            days === 7 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
+            days === 7 ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
           }`}
           onClick={() => setDays(7)}
         >
           7d
         </button>
-       
+
         <button
           className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-            days === 30 ? "bg-cyan text-cyan" : "bg-gray-200 text-gray-100"
+            days === 30 ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
           }`}
           onClick={() => setDays(30)}
         >

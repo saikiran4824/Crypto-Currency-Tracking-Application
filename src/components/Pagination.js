@@ -1,7 +1,7 @@
-import React, { useContext, useRef } from "react";
-import paginationArrow from "../assets/pagination-arrow.svg";
-import { CryptoContext } from "./../context/CryptoContext";
-import submitIcon from "../assets/submit-icon.svg";
+import React, { useContext, useRef } from 'react';
+import paginationArrow from '../assets/pagination-arrow.svg';
+import { CryptoContext } from './../context/CryptoContext';
+import submitIcon from '../assets/submit-icon.svg';
 
 const PerPage = () => {
   const { setPerPage } = useContext(CryptoContext);
@@ -29,7 +29,7 @@ const PerPage = () => {
           mr-2 font-bold
           "
       >
-        per page:{" "}
+        per page:{' '}
       </label>
       <input
         type="number"
@@ -56,11 +56,16 @@ const Pagination = () => {
 
   const TotalNumber = Math.ceil(totalPages / perPage);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const next = () => {
     if (page === TotalNumber) {
       return null;
     } else {
       setPage(page + 1);
+      scrollToTop(); // Scroll to top on page change
     }
   };
 
@@ -69,6 +74,7 @@ const Pagination = () => {
       return null;
     } else {
       setPage(page - 1);
+      scrollToTop(); // Scroll to top on page change
     }
   };
 
@@ -78,6 +84,7 @@ const Pagination = () => {
     } else {
       setPage(page + 3);
     }
+    scrollToTop(); // Scroll to top on page change
   };
 
   const multiStepPrev = () => {
@@ -86,8 +93,10 @@ const Pagination = () => {
     } else {
       setPage(page - 2);
     }
+    scrollToTop(); // Scroll to top on page change
   };
 
+  // Ensure the data updates when the page changes
   if (cryptoData && cryptoData.length >= perPage) {
     return (
       <div className="flex flex-wrap items-center justify-end m-4">
@@ -105,7 +114,7 @@ const Pagination = () => {
 
           {page + 1 === TotalNumber || page === TotalNumber ? (
             <li>
-              {" "}
+              {' '}
               <button
                 onClick={multiStepPrev}
                 className="ouline-0 hover:text-cyan  rounded-full w-8 h-8 flex items-center justify-center text-lg    "
@@ -121,8 +130,8 @@ const Pagination = () => {
                 onClick={prev}
                 className="ouline-0 hover:text-cyan  rounded-full w-8 h-8 flex items-center justify-center bg-gray-200 mx-1.5"
               >
-                {" "}
-                {page - 1}{" "}
+                {' '}
+                {page - 1}{' '}
               </button>
             </li>
           ) : null}
@@ -148,7 +157,7 @@ const Pagination = () => {
 
           {page + 1 !== TotalNumber && page !== TotalNumber ? (
             <li>
-              {" "}
+              {' '}
               <button
                 onClick={multiStepNext}
                 className="ouline-0 hover:text-cyan  rounded-full w-8 h-8 flex items-center justify-center text-lg    "
@@ -178,13 +187,9 @@ const Pagination = () => {
             </button>
           </li>
         </ul>
-        <div className="
-     absolute items-center justify-center
-text-sm  text-cyan flex mt-20
-     "
-    >
-      
-<h1>Crypto Chain - Crypto Currencies Tracking Application</h1></div>
+        <div className="absolute items-center justify-center text-sm text-cyan flex mt-20">
+          <h1>Crypto Chain - Crypto Currencies Tracking Application</h1>
+        </div>
       </div>
     );
   } else {

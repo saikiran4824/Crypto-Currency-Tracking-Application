@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const TrendingCoin = ({ data }) => {
   let navigate = useNavigate();
@@ -13,13 +13,13 @@ const TrendingCoin = ({ data }) => {
       className=" bg-gray-200 mb-12
     last:mb-0 rounded-lg p-2 relative cursor-pointer
     hover:bg-gray-100 hover:bg-opacity-40"
-      onClick={() => getCoinDetails(data.id)}>
+      onClick={() => getCoinDetails(data.id)}
+    >
       {data ? (
         <>
           <h3 className="txt-base flex items-center my-0.5">
             <span className="text-gray-100 capitalize">name:&nbsp;</span>
             <span className="text-cyan">{data.name}</span>
-           
           </h3>
 
           <h3 className="txt-base flex items-center my-0.5">
@@ -28,7 +28,6 @@ const TrendingCoin = ({ data }) => {
             </span>
             <span className="text-cyan">{data.market_cap_rank}</span>
           </h3>
-         
 
           <h3 className="text-base flex items-center my-0.5">
             <span className="text-gray-100 capitalize">score:&nbsp;</span>
@@ -38,7 +37,7 @@ const TrendingCoin = ({ data }) => {
           <img
             src={data.large}
             alt={data.name}
-            className="w-[25%] h-auto rounded-full absolute mr-2 top-1/4 -right-12
+            className="w-[25%] h-auto rounded-full absolute mr-8 top-1/4 -right-8
 -translate-y-2/4
 "
           />

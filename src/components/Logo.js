@@ -1,6 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Logo = () => {
   return (
@@ -11,12 +10,8 @@ const Logo = () => {
 text-xl  text-cyan flex mt-2 font-bold
      "
     >
-      
-<h1>Crypto Chain </h1>
-
-     
+      <h1>Crypto Chain </h1>
     </Link>
-    
   );
 };
 
