@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { CryptoContext } from './../context/CryptoContext';
 import Pagination from './Pagination';
 import { StorageContext } from './../context/StorageContext';
+import Footer from './Footer';
 
 const SaveBtn = ({ data }) => {
   const { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
@@ -51,155 +52,114 @@ const TableComponent = () => {
 
   return (
     <>
-      <div className="flex flex-col mt-9 border border-gray-100 rounded overflow-x-auto container mx-auto">
-        {cryptoData ? (
-          <table className="w-full table-auto hidden lg:table">
-            <thead
-              className="capitalize text-base text-gray-100 
-            font-medium border-b border-gray-100
-            "
-            >
-              <tr>
-                <th className="py-1">asset</th>
-                <th className="py-1">name</th>
-                <th className="py-1">price</th>
-                <th className="py-1">total volume</th>
-                <th className="py-1">market cap change</th>
-                <th className="py-1 lg:table-cell hidden">1H</th>
-                <th className="py-1 lg:table-cell hidden">24H</th>
-                <th className="py-1 lg:table-cell hidden">7D</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cryptoData.map((data) => (
-                <tr
-                  key={data.id}
-                  className="text-center text-base border-b border-gray-100 
-            hover:bg-gray-200 last:border-b-0
-            "
-                >
-                  <td className="py-4 flex items-center uppercase">
-                    <SaveBtn data={data} />
-                    <img
-                      className="w-[1.2rem] h-[1.2rem] mx-1.5"
-                      src={data.image}
-                      alt={data.name}
-                    />
-                    <span>
-                      <Link to={`/${data.id}`} className="cursor-pointer">
-                        {data.symbol}
-                      </Link>
-                    </span>
-                  </td>
-                  <td className="py-4">
-                    <Link to={`/${data.id}`} className="cursor-pointer">
-                      {data.name}
-                    </Link>
-                  </td>
-                  <td className="py-4">
-                    {new Intl.NumberFormat('en-IN', {
-                      style: 'currency',
-                      currency: currency,
-                    }).format(data.current_price)}
-                  </td>
-                  <td className="py-4">{data.total_volume}</td>
-                  <td className="py-4">
-                    {data.market_cap_change_percentage_24h}%
-                  </td>
-                  <td
-                    className={
-                      data.price_change_percentage_1h_in_currency > 0
-                        ? 'text-green py-4 lg:table-cell hidden '
-                        : 'text-red py-4  lg:table-cell hidden'
-                    }
-                  >
-                    {Number(
-                      data.price_change_percentage_1h_in_currency
-                    ).toFixed(2)}
-                  </td>
-                  <td
-                    className={
-                      data.price_change_percentage_24h_in_currency > 0
-                        ? 'text-green py-4 lg:table-cell hidden'
-                        : 'text-red py-4  lg:table-cell hidden'
-                    }
-                  >
-                    {Number(
-                      data.price_change_percentage_24h_in_currency
-                    ).toFixed(2)}
-                  </td>
-                  <td
-                    className={
-                      data.price_change_percentage_7d_in_currency > 0
-                        ? 'text-green py-4 lg:table-cell hidden'
-                        : 'text-red py-4  lg:table-cell hidden'
-                    }
-                  >
-                    {Number(
-                      data.price_change_percentage_7d_in_currency
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : !error.data && !error.search ? (
-          <div className="w-full min-h-[50vh] flex justify-center items-center">
-            <div
-              className="w-8 h-8 border-4 border-solid border-cyan rounded-full border-b-gray-200 animate-spin"
-              role="status"
-            />
-            <span className="text-base ml-2">please wait...</span>
+      <div className="flex flex-col mt-9 border rounded overflow-x-auto container mx-auto">
+  {cryptoData ? (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {cryptoData.map((data) => (
+        <div
+          key={data.id}
+          className=" p-4 rounded-lg shadow-md border border-cyan hover:shadow-lg"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center">
+              <SaveBtn data={data} />
+              <img
+                className="w-[2rem] h-[2rem] mx-2"
+                src={data.image}
+                alt={data.name}
+              />
+              <Link to={`/${data.id}`} className="font-semibold text-lg">
+                {data.symbol}
+              </Link>
+            </div>
+            <div>
+              <Link to={`/${data.id}`} className="text-sm text-cyan-500">
+                {data.name}
+              </Link>
+            </div>
           </div>
-        ) : error.data || error.search ? (
-          <h1 className="min-h-[60vh] text-lg text-red flex items-center justify-center">
-            {error.data
-              ? error.data
-              : error.search
-                ? error.search
-                : 'Something unexpected happened!'}
-          </h1>
-        ) : null}
-      </div>
 
-      {/* Mobile View - Card Layout */}
-      <div className="lg:hidden grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-4">
-        {cryptoData &&
-          cryptoData.map((data) => (
-            <div
-              key={data.id}
-              className=" border border-gray-100 p-4 rounded shadow-sm"
-            >
-              <div className="flex items-center justify-between">
-                <img
-                  className="w-8 h-8 mx-3"
-                  src={data.image}
-                  alt={data.name}
-                />
-                <Link
-                  to={`/${data.id}`}
-                  className="text-lg font-medium text-blue-500"
-                >
-                  {data.symbol}
-                </Link>
-                <SaveBtn data={data} />
-              </div>
-              <p className="py-2 font-bold">
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm text-gray-700">
+              <span>Price:</span>
+              <span>
                 {new Intl.NumberFormat('en-IN', {
                   style: 'currency',
                   currency: currency,
                 }).format(data.current_price)}
-              </p>
-              <p className="text-sm text-gray-500">
-                Volume: {data.total_volume}
-              </p>
-              <p className="text-sm text-gray-500">
-                Market Cap Change: {data.market_cap_change_percentage_24h}%
-              </p>
+              </span>
             </div>
-          ))}
-      </div>
+            <div className="flex justify-between text-sm text-gray-700">
+              <span>Total Volume:</span>
+              <span>{data.total_volume}</span>
+            </div>
+            <div className="flex justify-between text-sm text-gray-700">
+              <span>Market Cap Change:</span>
+              <span>{data.market_cap_change_percentage_24h}%</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span>1H:</span>
+              <span
+                className={
+                  data.price_change_percentage_1h_in_currency > 0
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                }
+              >
+                {Number(data.price_change_percentage_1h_in_currency).toFixed(2)}%
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span>24H:</span>
+              <span
+                className={
+                  data.price_change_percentage_24h_in_currency > 0
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                }
+              >
+                {Number(data.price_change_percentage_24h_in_currency).toFixed(2)}%
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span>7D:</span>
+              <span
+                className={
+                  data.price_change_percentage_7d_in_currency > 0
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                }
+              >
+                {Number(data.price_change_percentage_7d_in_currency).toFixed(2)}%
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : !error.data && !error.search ? (
+    <div className="w-full min-h-[50vh] flex justify-center items-center">
+      <div
+        className="w-8 h-8 border-4 border-solid border-cyan rounded-full border-b-gray-200 animate-spin"
+        role="status"
+      />
+      <span className="text-base ml-2">please wait...</span>
+    </div>
+  ) : error.data || error.search ? (
+    <h1 className="min-h-[60vh] text-lg text-red flex items-center justify-center">
+      {error.data
+        ? error.data
+        : error.search
+        ? error.search
+        : 'Something unexpected happened!'}
+    </h1>
+  ) : null}
+</div>
+
+
+      
       <Pagination />
+      <Footer />
     </>
   );
 };

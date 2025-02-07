@@ -41,7 +41,7 @@ const SearchInput = ({ handleSearch }) => {
         />
         <button
           type="submit"
-          className="absolute right-2 pr-4 cursor-pointer top-2"
+          className="absolute right-2 sm:pr-4  cursor-pointer top-2"
         >
           <img src={searchIcon} className="w-full h-auto" alt="search" />
         </button>

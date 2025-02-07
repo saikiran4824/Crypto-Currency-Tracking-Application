@@ -14,7 +14,7 @@ const Navigation = () => {
           to="/"
           end
           className={({ isActive }) => {
-            return `w-full text-base text-center font-nunito m-2.5 whitespace-nowrap
+            return `w-full text-base text-center font-nunito m-2.5 sm:whitespace-nowrap
 
 ${
   isActive
@@ -30,7 +30,7 @@ ${
         <NavLink
           to="/trending"
           className={({ isActive }) => {
-            return `w-full text-base text-center font-nunito m-2.5 whitespace-nowrap
+            return `w-full text-base text-center font-nunito m-2.5 sm:whitespace-nowrap
 
 ${
   isActive
@@ -46,7 +46,7 @@ ${
         <NavLink
           to="/saved"
           className={({ isActive }) => {
-            return `w-full text-base text-center font-nunito m-2.5 whitespace-nowrap
+            return `w-full text-base text-center font-nunito m-2.5 sm:whitespace-nowrap
 
 ${
   isActive
