@@ -16,7 +16,7 @@ export const CryptoProvider = ({ children }) => {
   const [sortBy, setSortBy] = useState('market_cap_desc');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(250);
-  const [perPage, setPerPage] = useState(10);
+  const [perPage, setPerPage] = useState(12);
 
   const [error, setError] = useState({ data: '', coinData: '', search: '' });
 

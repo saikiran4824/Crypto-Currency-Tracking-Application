@@ -2,7 +2,6 @@ import React, { useContext, useRef } from 'react';
 import paginationArrow from '../assets/pagination-arrow.svg';
 import { CryptoContext } from './../context/CryptoContext';
 import submitIcon from '../assets/submit-icon.svg';
-import Footer from './Footer';
 
 const PerPage = () => {
   const { setPerPage } = useContext(CryptoContext);
@@ -38,7 +37,7 @@ const PerPage = () => {
         min={1}
         max={250}
         ref={inputRef}
-        placeholder="10"
+        placeholder="12"
         className="w-16 rounded bg-gray-200 placeholder:text-gray-100
      pl-2 required outline-0 border border-transparent 
      focus:border-cyan leading-4

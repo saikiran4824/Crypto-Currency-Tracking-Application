@@ -59,7 +59,7 @@ const CryptoDetails = () => {
       >
         {data ? (
           <div className="flex  items-center md:justify-center h-full p-4">
-            <div className=" flex-col md:w-[45%] h-full pr-2 ">
+            <div className=" flex-col md:w-[95%] h-full pr-2 ">
               <div className="flex w-full items-center justify-center">
                 <img
                   className="md:w-[3rem] w-6 h-6 md:h-[3rem] mx-1.5"
