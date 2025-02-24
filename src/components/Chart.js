@@ -117,7 +117,7 @@ const ChartComponent = ({ data, currency, type, chartType }) => {
           <Tooltip content={<CustomTooltip />} currency={currency} cursor={false} wrapperStyle={{ outline: 'none', backgroundColor: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px' }} />
           <Legend />
           <Line type="monotone" dataKey={type} stroke="#ff7300" strokeWidth={2} />
-          <Bar dataKey={type} fill="#2ecc71"  barSize={6} />
+          <Bar dataKey={type} fill="#2ecc71" barSize={6}/>
           <Scatter dataKey={type} fill="#ff7300" />
         </ComposedChart>
       ) : null}
@@ -129,7 +129,7 @@ const Chart = ({ id }) => {
   const [chartData, setChartData] = useState();
   let { currency } = useContext(CryptoContext);
   const [type] = useState('prices');
-  const [days, setDays] = useState(30);
+  const [days] = useState(30);
   const [chartType, setChartType] = useState('line'); // Default to 'line'
 
   useLayoutEffect(() => {
@@ -160,7 +160,7 @@ const Chart = ({ id }) => {
   return (
     <div className="flex w-full h-[90%]"> {/* Flex container for side by side layout */}
       {/* Chart Container */}
-      <div className="w-full md:p-4"> {/* 75% width for the chart */}
+      <div className="w-full p-4"> {/* 75% width for the chart */}
         <ChartComponent data={chartData} currency={currency} type={type} chartType={chartType} />
       </div>
 
@@ -201,26 +201,7 @@ const Chart = ({ id }) => {
             Composed Chart
           </button>
         </div>
-        {/* Timeframe Buttons */}
-        <div className="justify-self space-y-4">
-        <button
-            className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-              days === 7 ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
-            }`}
-            onClick={() => setDays(7)}
-          >
-            7d
-          </button>
-
-          <button
-            className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-              days === 30 ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
-            }`}
-            onClick={() => setDays(30)}
-          >
-            30d
-          </button>
-        </div>
+        
       </div>
     </div>
   );
