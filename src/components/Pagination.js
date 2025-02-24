@@ -1,7 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import paginationArrow from '../assets/pagination-arrow.svg';
 import { CryptoContext } from './../context/CryptoContext';
-import submitIcon from '../assets/submit-icon.svg';
 
 const PerPage = () => {
   const { setPerPage } = useContext(CryptoContext);
@@ -44,7 +42,21 @@ const PerPage = () => {
      "
       />
       <button type="submit" className="ml-1 cursor-pointer">
-        <img src={submitIcon} alt="submit" className="w-full h-auto" />
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#2ecc71"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  className="cursor-pointer"
+>
+  <path d="M4 12l6 6L20 6" /> {/* Checkmark */}
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="#2ecc71" strokeWidth="2" fill="none" /> {/* Button border */}
+</svg>
       </button>
     </form>
   );
@@ -104,12 +116,23 @@ const Pagination = () => {
         <PerPage />
         <ul className="flex items-center justify-between text-sm p-2">
           <li className="flex items-center">
-            <button className="outline-0 hover:text-cyan w-8" onClick={prev}>
-              <img
-                className="w-full h-auto rotate-180"
-                src={paginationArrow}
-                alt="left"
-              />
+            <button className="outline-0 hover:text-cyan w-10 ml-4" onClick={prev}>
+            <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#2ecc71"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  className="cursor-pointer"
+>
+  <path d="M15 18l-6-6 6-6" />
+  <path d="M9 12h12" />
+</svg>
+
             </button>
           </li>
 
@@ -179,12 +202,23 @@ const Pagination = () => {
             </li>
           ) : null}
           <li>
-            <button className="outline-0 hover:text-cyan w-8" onClick={next}>
-              <img
-                className="w-full h-auto"
-                src={paginationArrow}
-                alt="right"
-              />
+            <button className="outline-0 hover:text-cyan w-10" onClick={next}>
+            <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#2ecc71"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  className="cursor-pointer"
+>
+  <path d="M15 18l6-6-6-6" />  {/* Right-facing arrow */}
+  <path d="M7 12h10" /> {/* Horizontal line at the center */}
+</svg>
+
             </button>
           </li>
         </ul>

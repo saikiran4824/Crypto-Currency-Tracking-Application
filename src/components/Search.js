@@ -1,11 +1,13 @@
-import debounce from 'lodash.debounce';
-import React, { useContext, useState } from 'react';
-import searchIcon from '../assets/search-icon.svg';
-import { CryptoContext } from './../context/CryptoContext';
+import debounce from "lodash.debounce";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import searchIcon from "../assets/search-icon.svg";
+import { CryptoContext } from "./../context/CryptoContext";
 
 const SearchInput = ({ handleSearch }) => {
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
   let { searchData, setCoinSearch, setSearchData } = useContext(CryptoContext);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   let handleInput = (e) => {
     e.preventDefault();
@@ -21,8 +23,9 @@ const SearchInput = ({ handleSearch }) => {
 
   const selectCoin = (coin) => {
     setCoinSearch(coin);
-    setSearchText('');
+    setSearchText("");
     setSearchData();
+    navigate(`/${coin}`); // Redirect to coin chart page
   };
 
   return (
@@ -66,7 +69,7 @@ const SearchInput = ({ handleSearch }) => {
           ) : (
             <div className="w-full h-full flex justify-center items-center">
               <div
-                className="w-8 h-8 border-4 border-cyan rounded-full border-b-gray-200 animate-spin"
+                className="w-8 h-8 border-4 m-4 border-cyan rounded-full border-b-gray-200 animate-spin"
                 role="status"
               />
               <span className="ml-2">Searching...</span>

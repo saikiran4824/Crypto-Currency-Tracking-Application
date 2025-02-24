@@ -54,7 +54,7 @@ const CryptoDetails = () => {
       onClick={close}
     >
       <div
-        className="w-[95%] md:w-[65%] h-[95%] max-h-screen overflow-auto bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
+        className="w-[95%] md:w-[90%] h-[95%] max-h-screen overflow-auto bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
         onClick={(e) => e.stopPropagation()}
       >
         {data ? (

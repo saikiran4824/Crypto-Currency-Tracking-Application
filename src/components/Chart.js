@@ -6,6 +6,8 @@ import {
   Bar,
   AreaChart,
   Area,
+  ComposedChart,
+  Scatter,
   XAxis,
   YAxis,
   Tooltip,
@@ -107,6 +109,17 @@ const ChartComponent = ({ data, currency, type, chartType }) => {
           />
           <Legend />
         </AreaChart>
+      )  : chartType === 'composed' ? (
+        <ComposedChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 30 }}>
+          <CartesianGrid stroke="#323232" strokeDasharray="3 3" />
+          <XAxis dataKey="date" stroke="#2ecc71" tick={{ fill: '#2ecc71', fontSize: 12 }} />
+          <YAxis stroke="#2ecc71" tick={false} domain={['auto', 'auto']} />
+          <Tooltip content={<CustomTooltip />} currency={currency} cursor={false} wrapperStyle={{ outline: 'none', backgroundColor: 'rgba(0, 0, 0, 0.8)', borderRadius: '5px' }} />
+          <Legend />
+          <Line type="monotone" dataKey={type} stroke="#ff7300" strokeWidth={2} />
+          <Bar dataKey={type} fill="#2ecc71"  barSize={6} />
+          <Scatter dataKey={type} fill="#ff7300" />
+        </ComposedChart>
       ) : null}
     </ResponsiveContainer>
   );
@@ -115,8 +128,8 @@ const ChartComponent = ({ data, currency, type, chartType }) => {
 const Chart = ({ id }) => {
   const [chartData, setChartData] = useState();
   let { currency } = useContext(CryptoContext);
-  const [type, setType] = useState('prices');
-  const [days, setDays] = useState(7);
+  const [type] = useState('prices');
+  const [days, setDays] = useState(30);
   const [chartType, setChartType] = useState('line'); // Default to 'line'
 
   useLayoutEffect(() => {
@@ -147,7 +160,7 @@ const Chart = ({ id }) => {
   return (
     <div className="flex w-full h-[90%]"> {/* Flex container for side by side layout */}
       {/* Chart Container */}
-      <div className="w-3/4 p-4"> {/* 75% width for the chart */}
+      <div className="w-full md:p-4"> {/* 75% width for the chart */}
         <ChartComponent data={chartData} currency={currency} type={type} chartType={chartType} />
       </div>
 
@@ -179,38 +192,17 @@ const Chart = ({ id }) => {
           >
             Area Chart
           </button>
-        </div>
-
-        {/* Data Type Buttons */}
-        <div className="flex flex-col space-y-4">
           <button
             className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-              type === 'prices' ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
+              chartType === 'composed' ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
             }`}
-            onClick={() => setType('prices')}
+            onClick={() => setChartType('composed')}
           >
-            Price
-          </button>
-          <button
-            className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-              type === 'market_caps' ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
-            }`}
-            onClick={() => setType('market_caps')}
-          >
-            Market Caps
-          </button>
-          <button
-            className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
-              type === 'total_volumes' ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
-            }`}
-            onClick={() => setType('total_volumes')}
-          >
-            Total Volumes
+            Composed Chart
           </button>
         </div>
-
         {/* Timeframe Buttons */}
-        <div className="hidden lg:flex lg:flex-col space-y-4">
+        <div className="justify-self space-y-4">
         <button
             className={`text-sm py-0.5 px-1.5 ml-2 bg-opacity-25 rounded capitalize ${
               days === 7 ? 'bg-cyan text-cyan' : 'bg-gray-200 text-gray-100'
